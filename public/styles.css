@@ -50,6 +50,9 @@ a { color: inherit; }
   height: auto;
   max-height: 78px;
   object-fit: contain;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
 }
 .portal-label {
   padding-left: 16px;
@@ -165,7 +168,7 @@ footer p { margin: 0; }
   .page-shell { width: min(100% - 20px, 1180px); padding-top: 10px; }
   .site-header { padding: 14px 16px; border-radius: 16px; gap: 12px; }
   .brand-block { gap: 10px; }
-  .brand-logo { width: 138px; max-height: 50px; }
+  .brand-logo { width: 138px; max-height: 50px; padding: 5px 7px; }
   .portal-label { padding-left: 10px; font-size: 1rem; }
   .header-actions { gap: 6px; }
   .environment-pill { padding: 0 9px; }
