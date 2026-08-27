@@ -1,9 +1,9 @@
-const CACHE_NAME = 'squab-portal-v2';
+const CACHE_NAME = 'squab-portal-v3';
 const CORE_ASSETS = [
   '/',
   '/index.html',
   '/styles.css',
-  '/app.js',
+  '/app.js?v=3',
   '/manifest.webmanifest',
   '/icons/portal-icon.svg',
   '/assets/squab-storage-logo.webp'
