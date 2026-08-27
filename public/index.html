@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F4941E">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="Squab Portal - quick access to Squab web apps.">
+  <title>Squab Portal</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/portal-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-block" aria-label="Squab Portal">
+        <span class="brand-kicker">SQUAB</span>
+        <h1>Portal</h1>
+      </div>
+      <div class="header-actions">
+        <span class="environment-pill" title="This portal is currently in development">DEV</span>
+        <button id="installButton" class="install-button" type="button" hidden>Install Portal</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="portal-heading">
+        <p class="eyebrow">App launcher</p>
+        <h2 id="portal-heading">Choose an app</h2>
+        <p class="intro-copy">One place to open the Squab tools you use. Each app keeps its own sign-in and access controls.</p>
+      </section>
+
+      <section aria-label="Squab apps">
+        <div id="appGrid" class="app-grid"></div>
+      </section>
+
+      <p id="offlineNotice" class="offline-notice" hidden>You are offline. The Portal menu is available, but linked apps may need an internet connection.</p>
+    </main>
+
+    <footer>
+      <p>Squab Portal <span aria-hidden="true">·</span> Internal app launcher</p>
+    </footer>
+  </div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
