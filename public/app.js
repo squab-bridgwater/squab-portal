@@ -30,8 +30,8 @@ const apps = [
   {
     name: 'Electricity',
     description: 'Manage and review electricity information and records.',
-    url: 'https://squab-electricity-dev.web.app/',
-    status: 'Dev',
+    url: 'https://squab-electricity.web.app/',
+    status: 'Live',
     icon: 'bolt'
   }
 ];
