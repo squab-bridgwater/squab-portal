@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Squab Portal icon">
+  <rect width="512" height="512" rx="112" fill="#000000"/>
+  <rect x="76" y="76" width="160" height="160" rx="42" fill="#F4941E"/>
+  <rect x="276" y="76" width="160" height="160" rx="42" fill="#E95822"/>
+  <rect x="76" y="276" width="160" height="160" rx="42" fill="#FABD75"/>
+  <rect x="276" y="276" width="160" height="160" rx="42" fill="#F4941E"/>
+  <path d="M156 156h80M196 116v80M316 156h80M356 116v80M156 356h80M196 316v80M316 356h80M356 316v80" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round"/>
+</svg>
