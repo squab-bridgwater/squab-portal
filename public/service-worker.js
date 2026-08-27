@@ -1,11 +1,12 @@
-const CACHE_NAME = 'squab-portal-v1';
+const CACHE_NAME = 'squab-portal-v2';
 const CORE_ASSETS = [
   '/',
   '/index.html',
   '/styles.css',
   '/app.js',
   '/manifest.webmanifest',
-  '/icons/portal-icon.svg'
+  '/icons/portal-icon.svg',
+  '/assets/squab-storage-logo.webp'
 ];
 
 self.addEventListener('install', (event) => {
