@@ -1,0 +1,19 @@
+{
+  "name": "Squab Portal",
+  "short_name": "Squab Portal",
+  "description": "Quick access to Squab web apps.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F7F7F5",
+  "theme_color": "#F4941E",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/icons/portal-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
