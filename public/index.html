@@ -3,79 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#171817">
+  <meta name="theme-color" content="#f4f7fb">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta name="description" content="Squab Apps – one place for all your Squab tools.">
-  <title>Squab Apps | Squab Storage</title>
+  <meta name="description" content="Squab Portal – quick access to all your Squab applications.">
+  <title>Squab Portal | Your Apps</title>
   <link rel="manifest" href="/manifest.webmanifest?v=3">
   <link rel="icon" href="/icons/portal-icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/portal-icon-180.png">
-  <link rel="stylesheet" href="/styles.css?v=7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="/styles.css?v=8">
 </head>
 <body>
-  <div class="page-shell">
-    <header class="site-header">
-      <div class="brand-block" aria-label="Squab Storage Apps">
-        <span class="logo-frame">
-          <img id="brandLogo" class="brand-logo" src="https://squab-pricing-app.web.app/squab-storage-logo-web-hq.webp" alt="Squab Storage">
-          <span class="brand-logo-fallback" aria-hidden="true">SQUAB</span>
-        </span>
-        <span class="brand-divider" aria-hidden="true"></span>
-        <span class="brand-copy">
-          <span class="brand-title">Squab Apps</span>
-          <span class="brand-subtitle">Your workspace</span>
-        </span>
-      </div>
-      <button id="installButton" class="install-button" type="button" aria-label="Install Squab Apps" hidden>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 16v4h16v-4"/></svg>
-        <span>Install app</span>
-      </button>
-    </header>
-
-    <main>
-      <section class="dashboard-head" aria-labelledby="portal-heading">
-        <div>
-          <p class="eyebrow">SQUAB WORKSPACE</p>
-          <h1 id="portal-heading">Your apps<span class="heading-dot">.</span></h1>
-          <p class="intro-copy">Everything you need, all in one place.</p>
+  <div class="site-shell">
+    <header class="hero">
+      <div class="top-controls">
+        <div class="portal-identity" aria-label="Squab Portal, all your apps in one place">
+          <span class="portal-avatar" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4.5" y="4.5" width="6" height="6" rx="1.7"/><rect x="13.5" y="4.5" width="6" height="6" rx="1.7"/><rect x="4.5" y="13.5" width="6" height="6" rx="1.7"/><rect x="13.5" y="13.5" width="6" height="6" rx="1.7"/></svg></span>
+          <span class="portal-identity-copy"><strong>Squab Portal</strong><small>Your apps. All in one place.</small></span>
         </div>
-        <span class="app-total" id="appTotal" aria-label="Number of available apps"></span>
-      </section>
-
-      <section class="app-section" aria-label="Available Squab apps">
-        <div class="toolbar">
-          <div class="filter-bar" role="group" aria-label="Filter apps by status">
-            <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All apps <span id="allCount"></span></button>
-            <button class="filter-button" type="button" data-filter="live" aria-pressed="false">Live <span id="liveCount"></span></button>
-            <button class="filter-button" type="button" data-filter="dev" aria-pressed="false">Development <span id="devCount"></span></button>
-          </div>
-          <label class="search-field">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.5 15.5 5.1 5.1"/></svg>
-            <span class="sr-only">Search apps</span>
-            <input id="appSearch" type="search" placeholder="Search apps..." autocomplete="off" spellcheck="false" enterkeyhint="search">
+        <button id="installButton" class="install-button" type="button" hidden>Install Portal</button>
+      </div>
+      <div class="hero-centre">
+        <div class="logo-holder">
+          <img class="squab-logo" id="brandLogo" src="https://squab-pricing-app.web.app/squab-storage-logo-web-hq.webp" alt="Squab Storage" decoding="async">
+          <span class="logo-fallback" aria-hidden="true">SQU<span class="letter-a">A</span>B</span>
+        </div>
+        <p class="brand-motto">BEAUTIFUL PLACES. &nbsp; BETTER LIVES.</p>
+        <h1>Welcome to the Squab Portal</h1>
+        <p class="hero-subtitle">Quick access to all your Squab applications</p>
+        <div class="hero-search">
+          <label class="search-box" for="appSearch">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.25"/><path d="m15.5 15.5 5 5"/></svg>
+            <span class="sr-only">Search Squab apps</span>
+            <input id="appSearch" type="search" placeholder="Search your apps..." autocomplete="off" spellcheck="false">
           </label>
         </div>
+      </div>
+    </header>
 
-        <p class="result-summary" id="resultSummary" role="status" aria-live="polite"></p>
+    <main class="main-content">
+      <section aria-label="Squab applications" class="apps-section">
+        <div class="apps-bar">
+          <p class="app-count" id="resultSummary" role="status" aria-live="polite"></p>
+          <div class="filter-bar" role="group" aria-label="Filter apps by status">
+            <button type="button" class="filter-button" data-filter="all" aria-pressed="true">All apps <span id="allCount"></span></button>
+            <button type="button" class="filter-button" data-filter="live" aria-pressed="false">Live <span id="liveCount"></span></button>
+            <button type="button" class="filter-button" data-filter="dev" aria-pressed="false">Dev <span id="devCount"></span></button>
+          </div>
+        </div>
         <div id="appGrid" class="app-grid"></div>
         <div id="emptyState" class="empty-state" hidden>
-          <span class="empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m15.5 15.5 5.1 5.1"/></svg></span>
           <h2>No apps found</h2>
-          <p>Try a different search or show all apps.</p>
+          <p>Try a different search, or show all your apps.</p>
           <button id="resetFilters" type="button">Show all apps</button>
         </div>
       </section>
-
-      <p id="offlineNotice" class="offline-notice" role="status" hidden>
-        <span aria-hidden="true">●</span> You're offline. Your app menu is available, but opening an app may require a connection.
-      </p>
+      <p id="offlineNotice" class="offline-notice" role="status" hidden>You're offline. The app menu is available, but opening an app may need an internet connection.</p>
     </main>
 
     <footer class="site-footer">
-      <span>© Squab Storage</span>
-      <span>Each app manages its own sign-in and access.</span>
+      <span>Squab Portal</span>
+      <span>Each app manages its own sign-in and permissions.</span>
     </footer>
   </div>
-  <script src="/app.js?v=7" defer></script>
+  <script src="/app.js?v=8" defer></script>
 </body>
 </html>
