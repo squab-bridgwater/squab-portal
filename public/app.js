@@ -53,25 +53,116 @@ const icons = {
 };
 
 const appGrid = document.getElementById('appGrid');
+const appSearch = document.getElementById('appSearch');
+const resultSummary = document.getElementById('resultSummary');
+const emptyState = document.getElementById('emptyState');
+const filterButtons = document.querySelectorAll('.filter-button');
+const appTotal = document.getElementById('appTotal');
 
-apps.forEach((app) => {
+const counts = {
+  all: apps.length,
+  live: apps.filter((app) => app.status === 'Live').length,
+  dev: apps.filter((app) => app.status === 'Dev').length
+};
+document.getElementById('allCount').textContent = counts.all;
+document.getElementById('liveCount').textContent = counts.live;
+document.getElementById('devCount').textContent = counts.dev;
+appTotal.textContent = apps.length + (apps.length === 1 ? ' app' : ' apps');
+
+let activeFilter = 'all';
+const arrowIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m0 0-5-5m5 5-5 5"/></svg>';
+const fallbackIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>';
+
+function createCard(app) {
   const card = document.createElement('a');
   card.className = 'app-card';
   card.href = app.url;
-  card.setAttribute('aria-label', `Open ${app.name}${app.status === 'Dev' ? ' development app' : ''}`);
+  card.setAttribute('aria-label', 'Open ' + app.name + (app.status === 'Dev' ? ' development app' : ''));
 
-  card.innerHTML = `
-    <div class="card-top">
-      <span class="icon-wrap">${icons[app.icon]}</span>
-      <span class="status ${app.status.toLowerCase()}">${app.status}</span>
-    </div>
-    <h3>${app.name}</h3>
-    <p>${app.description}</p>
-    <span class="card-link">Open app →</span>
-  `;
+  const top = document.createElement('div');
+  top.className = 'card-top';
 
-  appGrid.appendChild(card);
+  const iconWrap = document.createElement('span');
+  iconWrap.className = 'app-icon';
+  iconWrap.dataset.icon = app.icon || 'grid';
+  iconWrap.innerHTML = icons[app.icon] || fallbackIcon;
+
+  const status = document.createElement('span');
+  status.className = 'status ' + (app.status === 'Dev' ? 'dev' : 'live');
+  status.textContent = app.status;
+  top.append(iconWrap, status);
+
+  const content = document.createElement('div');
+  content.className = 'card-content';
+  const title = document.createElement('h2');
+  title.textContent = app.name;
+  const description = document.createElement('p');
+  description.textContent = app.description || '';
+  content.append(title, description);
+
+  const bottom = document.createElement('div');
+  bottom.className = 'card-bottom';
+  const label = document.createElement('span');
+  label.textContent = 'Open app';
+  const arrow = document.createElement('span');
+  arrow.className = 'open-arrow';
+  arrow.setAttribute('aria-hidden', 'true');
+  arrow.innerHTML = arrowIcon;
+  bottom.append(label, arrow);
+
+  card.append(top, content, bottom);
+  return card;
+}
+
+function renderApps() {
+  const search = appSearch.value.trim().toLocaleLowerCase('en-GB');
+  const visible = apps.filter((app) => {
+    const statusMatch = activeFilter === 'all' || app.status.toLowerCase() === activeFilter;
+    const searchable = (app.name + ' ' + (app.description || '') + ' ' + app.status).toLocaleLowerCase('en-GB');
+    return statusMatch && searchable.includes(search);
+  });
+
+  const fragment = document.createDocumentFragment();
+  visible.forEach((app) => fragment.appendChild(createCard(app)));
+  appGrid.replaceChildren(fragment);
+
+  const total = apps.length;
+  resultSummary.textContent = (search || activeFilter !== 'all')
+    ? 'Showing ' + visible.length + ' of ' + total + (total === 1 ? ' app' : ' apps')
+    : total + (total === 1 ? ' app available' : ' apps available');
+
+  appGrid.hidden = visible.length === 0;
+  emptyState.hidden = visible.length !== 0;
+}
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    activeFilter = button.dataset.filter;
+    filterButtons.forEach((filterButton) => {
+      filterButton.setAttribute('aria-pressed', String(filterButton === button));
+    });
+    renderApps();
+  });
 });
+
+appSearch.addEventListener('input', renderApps);
+document.getElementById('resetFilters').addEventListener('click', () => {
+  activeFilter = 'all';
+  appSearch.value = '';
+  filterButtons.forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.filter === 'all'));
+  });
+  renderApps();
+  appSearch.focus();
+});
+renderApps();
+
+const brandLogo = document.getElementById('brandLogo');
+if (brandLogo) {
+  const showLogoFallback = () => brandLogo.parentElement.classList.add('logo-unavailable');
+  brandLogo.addEventListener('error', showLogoFallback);
+  if (brandLogo.complete && !brandLogo.naturalWidth) showLogoFallback();
+}
 
 const offlineNotice = document.getElementById('offlineNotice');
 const setNetworkState = () => {
@@ -84,7 +175,7 @@ setNetworkState();
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/service-worker.js').catch(() => {
-      // Portal remains usable online if service-worker registration fails.
+      // The app menu is still available online without a service worker.
     });
   });
 }
