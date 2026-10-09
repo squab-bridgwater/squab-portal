@@ -33,6 +33,13 @@ const apps = [
     url: 'https://squab-electricity.web.app/',
     status: 'Live',
     icon: 'bolt'
+  },
+  {
+    name: 'Group Activity',
+    description: 'Open the Squab Group Activity site.',
+    url: 'https://squab-group-activity.squab-storag-8905.chatgpt.site/',
+    status: 'Live',
+    icon: 'group'
   }
 ];
 
@@ -41,7 +48,8 @@ const icons = {
   search: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/><path d="M7.5 10.5h6M10.5 7.5v6"/></svg>',
   shield: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.4 8 7 10 4.6-2 7-5.4 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>',
   clipboard: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H6a2 2 0 0 0-2 2v13h16V7a2 2 0 0 0-2-2h-3"/><path d="M9 3h6v4H9z"/><path d="M8 12h8M8 16h5"/></svg>',
-  bolt: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 9-13h-6V2Z"/></svg>'
+  bolt: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 9-13h-6V2Z"/></svg>',
+  group: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.6-3.6 2.6-5.5 6-5.5s5.4 1.9 6 5.5"/><path d="M14.5 14.8c.7-.4 1.6-.6 2.5-.6 2.5 0 4 1.4 4.5 4.3"/></svg>'
 };
 
 const appGrid = document.getElementById('appGrid');
