@@ -47,6 +47,13 @@ const apps = [
     url: 'https://docs.google.com/spreadsheets/d/1Gl48Y-6VfcObFVthEWATEeIS7aecySusu91_K4cZCbI/edit?gid=2002527384#gid=2002527384',
     status: 'Live',
     icon: 'rota'
+  },
+  {
+    name: 'Digital Governance Overview',
+    description: 'Access the Squab digital governance overview.',
+    url: 'https://ambitious-smoke-033a2870f.2.azurestaticapps.net/',
+    status: 'Live',
+    icon: 'governance'
   }
 ];
 
@@ -57,7 +64,8 @@ const icons = {
   clipboard: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.9 3.2h4.2l.5 2 1.6.9 2-.7 2.2 3.7-1.5 1.4v1.8l1.5 1.4-2.2 3.7-2-.7-1.6.9-.5 2H9.9l-.5-2-1.6-.9-2 .7-2.2-3.7 1.5-1.4v-1.8L3.6 9.1l2.2-3.7 2 .7 1.6-.9.5-2Z"/><circle cx="12" cy="11.4" r="3"/></svg>',
   bolt: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 2 5 13.5h6.7L10.6 22 19 10.3h-6.5L13.5 2Z"/></svg>',
   group: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="7.7" r="3"/><path d="M3.2 20c.5-4 2.7-6 6.8-6s6.3 2 6.8 6H3.2Z"/><path d="M17 5.2a2.7 2.7 0 0 1 0 5.3M17.5 14.3c2.4.5 3.7 2.2 4 4.8"/></svg>',
-  rota: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3 10h18M8 14h3M8 17h3M15 14h2"/></svg>'
+  rota: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3 10h18M8 14h3M8 17h3M15 14h2"/></svg>',
+  governance: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 3v3h6V3M8 11l1.6 1.6L12 10M14 11h3M8 17l1.6 1.6L12 16M14 17h3"/></svg>'
 };
 
 const fallbackIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>';
