@@ -49,6 +49,21 @@ const apps = [
     icon: 'rota'
   },
   {
+    name: 'Branch Activity Sheets',
+    description: 'Six branch activity sheets',
+    status: 'Live',
+    icon: 'sheets',
+    type: 'group',
+    links: [
+      { name: 'Bridgwater', url: 'https://docs.google.com/spreadsheets/d/1neYSMj9c06VE3qUe1AjUMSGRZg6cHkRCzysWM67-gbU/edit?gid=1910733365#gid=1910733365' },
+      { name: 'Stowmarket', url: 'https://docs.google.com/spreadsheets/d/1oTgm_XgeE7ngCbOY4UM8jwxwSRR9E4H5gStB7_lx_aw/edit?gid=483027240#gid=483027240' },
+      { name: 'Rubery', url: 'https://docs.google.com/spreadsheets/d/1vmILJksPU70z_DoHQT9_4EoLKJLxNDeIbRvImZ1wsSw/edit?gid=121445159#gid=121445159' },
+      { name: 'Leamington', url: 'https://docs.google.com/spreadsheets/d/1TLQ5fMAx0uOt7yHSzqcu1uXcIVWK2gVXwy8PrRR2KhI/edit?gid=554649763#gid=554649763' },
+      { name: 'Warwick', url: 'https://docs.google.com/spreadsheets/d/1qapxv5LE18FLZX3vgr9WITSeZGpnZqrLHOpEMlxAbOU/edit?gid=1996308719#gid=1996308719' },
+      { name: 'Evesham', url: 'https://docs.google.com/spreadsheets/d/134QUVtxCvbZNPCaAsnan_UjuluT0_wM9-1ULNU8JGSM/edit?gid=1851205798#gid=1851205798' }
+    ]
+  },
+  {
     name: 'Digital Governance Overview',
     description: 'Access the Squab digital governance overview.',
     url: 'https://ambitious-smoke-033a2870f.2.azurestaticapps.net/',
@@ -72,6 +87,7 @@ const icons = {
   bolt: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 2 5 13.5h6.7L10.6 22 19 10.3h-6.5L13.5 2Z"/></svg>',
   group: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="7.7" r="3"/><path d="M3.2 20c.5-4 2.7-6 6.8-6s6.3 2 6.8 6H3.2Z"/><path d="M17 5.2a2.7 2.7 0 0 1 0 5.3M17.5 14.3c2.4.5 3.7 2.2 4 4.8"/></svg>',
   rota: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3 10h18M8 14h3M8 17h3M15 14h2"/></svg>',
+  sheets: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M3 10h18M8 15h13M14 10v10"/></svg>',
   governance: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 3v3h6V3M8 11l1.6 1.6L12 10M14 11h3M8 17l1.6 1.6L12 16M14 17h3"/></svg>',
   audit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v15H5V6a2 2 0 0 1 2-2Z"/><path d="M9 3h6v4H9zM8 12l2 2 4-4M8 18h8"/></svg>'
 };
@@ -95,15 +111,20 @@ document.getElementById('devCount').textContent = counts.dev;
 
 let activeFilter = 'all';
 
-function createCard(app) {
-  const card = document.createElement('a');
-  card.className = 'app-card';
+function createCard(app, query = '') {
+  const isGroup = app.type === 'group' && Array.isArray(app.links);
+  const card = document.createElement(isGroup ? 'details' : 'a');
+  card.className = isGroup ? 'app-card app-group' : 'app-card';
   card.dataset.icon = app.icon || 'default';
-  card.href = app.url;
-  card.setAttribute('aria-label', 'Open ' + app.name + (app.status === 'Dev' ? ' development app' : ''));
+
+  if (!isGroup) {
+    card.href = app.url;
+    card.setAttribute('aria-label', 'Open ' + app.name + (app.status === 'Dev' ? ' development app' : ''));
+  }
 
   const tile = document.createElement('span');
   tile.className = 'app-icon';
+  tile.setAttribute('aria-hidden', 'true');
   tile.innerHTML = icons[app.icon] || fallbackIcon;
 
   const content = document.createElement('div');
@@ -118,15 +139,45 @@ function createCard(app) {
   const status = document.createElement('span');
   status.className = 'card-status ' + (app.status === 'Dev' ? 'dev' : 'live');
   status.textContent = app.status;
-
   content.append(title, description, status);
 
   const arrow = document.createElement('span');
   arrow.className = 'card-arrow';
   arrow.setAttribute('aria-hidden', 'true');
-  arrow.innerHTML = arrowIcon;
+  arrow.innerHTML = isGroup
+    ? '<svg viewBox="0 0 24 24"><path d="m5 9 7 7 7-7"/></svg>'
+    : arrowIcon;
 
-  card.append(tile, content, arrow);
+  if (!isGroup) {
+    card.append(tile, content, arrow);
+    return card;
+  }
+
+  const summary = document.createElement('summary');
+  summary.className = 'group-summary';
+  summary.append(tile, content, arrow);
+
+  const linkList = document.createElement('div');
+  linkList.className = 'group-links';
+  for (const link of app.links) {
+    const row = document.createElement('a');
+    row.className = 'group-link';
+    row.href = link.url;
+    row.setAttribute('aria-label', 'Open ' + link.name + ' activity sheet');
+    const label = document.createElement('span');
+    label.textContent = link.name;
+    const chevron = document.createElement('span');
+    chevron.setAttribute('aria-hidden', 'true');
+    chevron.textContent = '›';
+    row.append(label, chevron);
+    linkList.appendChild(row);
+  }
+  card.append(summary, linkList);
+
+  // Searching for a branch reveals the matching grouped links.
+  if (query && app.links.some((link) => link.name.toLocaleLowerCase('en-GB').includes(query))) {
+    card.open = true;
+  }
   return card;
 }
 
@@ -134,12 +185,12 @@ function renderApps() {
   const query = appSearch.value.trim().toLocaleLowerCase('en-GB');
   const visible = apps.filter((app) => {
     const matchesStatus = activeFilter === 'all' || app.status.toLowerCase() === activeFilter;
-    const text = (app.name + ' ' + (app.description || '') + ' ' + app.status).toLocaleLowerCase('en-GB');
+    const text = (app.name + ' ' + (app.description || '') + ' ' + app.status + ' ' + (app.links || []).map((link) => link.name).join(' ')).toLocaleLowerCase('en-GB');
     return matchesStatus && text.includes(query);
   });
 
   const list = document.createDocumentFragment();
-  visible.forEach((app) => list.appendChild(createCard(app)));
+  visible.forEach((app) => list.appendChild(createCard(app, query)));
   appGrid.replaceChildren(list);
 
   resultSummary.textContent = (query || activeFilter !== 'all')
