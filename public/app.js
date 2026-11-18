@@ -54,6 +54,13 @@ const apps = [
     url: 'https://ambitious-smoke-033a2870f.2.azurestaticapps.net/',
     status: 'Live',
     icon: 'governance'
+  },
+  {
+    name: 'Site Audits',
+    description: 'Open the Squab site audits and inspection workspace.',
+    url: 'https://squab-site-audits-dev.web.app/',
+    status: 'Dev',
+    icon: 'audit'
   }
 ];
 
@@ -65,7 +72,8 @@ const icons = {
   bolt: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 2 5 13.5h6.7L10.6 22 19 10.3h-6.5L13.5 2Z"/></svg>',
   group: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="7.7" r="3"/><path d="M3.2 20c.5-4 2.7-6 6.8-6s6.3 2 6.8 6H3.2Z"/><path d="M17 5.2a2.7 2.7 0 0 1 0 5.3M17.5 14.3c2.4.5 3.7 2.2 4 4.8"/></svg>',
   rota: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3 10h18M8 14h3M8 17h3M15 14h2"/></svg>',
-  governance: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 3v3h6V3M8 11l1.6 1.6L12 10M14 11h3M8 17l1.6 1.6L12 16M14 17h3"/></svg>'
+  governance: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 3v3h6V3M8 11l1.6 1.6L12 10M14 11h3M8 17l1.6 1.6L12 16M14 17h3"/></svg>',
+  audit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v15H5V6a2 2 0 0 1 2-2Z"/><path d="M9 3h6v4H9zM8 12l2 2 4-4M8 18h8"/></svg>'
 };
 
 const fallbackIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>';

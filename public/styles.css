@@ -70,6 +70,7 @@ button:focus-visible,a:focus-visible,input:focus-visible { outline: 3px solid #f
 .app-card[data-icon="group"] { --accent1:#ff789e; --accent2:#ef3680; --tint:#ffe7f0; }
 .app-card[data-icon="rota"] { --accent1:#69d5de; --accent2:#228cbd; --tint:#e6f7fc; }
 .app-card[data-icon="governance"] { --accent1:#8f9df8; --accent2:#505ac7; --tint:#edeffe; }
+.app-card[data-icon="audit"] { --accent1:#5cbba7; --accent2:#287e76; --tint:#e3f5f0; }
 .app-icon { display: grid; place-items: center; width: 112px; height: 112px; border-radius: 27px; color: #fff; background: linear-gradient(140deg,var(--accent1),var(--accent2)); box-shadow: 0 9px 17px color-mix(in srgb,var(--accent2),transparent 80%); }
 .app-icon svg { width: 57px; height: 57px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .card-content { min-width: 0; position: relative; z-index: 1; }
