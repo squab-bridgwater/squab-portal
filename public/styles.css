@@ -264,3 +264,5 @@ button:focus-visible,a:focus-visible,input:focus-visible { outline: 3px solid #f
   .group-summary { padding: 11px; }
   .group-link { padding: 8px; }
 }
+
+.app-card[data-icon="connect"] { --accent1:#faab77; --accent2:#e56d43; --tint:#fff0e7; }

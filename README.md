@@ -14,6 +14,7 @@ An installable, responsive launcher for Squab internal applications and branch r
 - Branch Activity Sheets (Live, expandable group of six Google Sheets)
 - Digital Governance Overview (Live)
 - Site Audits (Dev)
+- Squab Connect (Live)
 
 ## Design and behaviour
 

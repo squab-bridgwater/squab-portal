@@ -76,6 +76,13 @@ const apps = [
     url: 'https://squab-site-audits-dev.web.app/',
     status: 'Dev',
     icon: 'audit'
+  },
+  {
+    name: 'Squab Connect',
+    description: 'Open Squab Connect.',
+    url: 'https://squab-connect.vercel.app/',
+    status: 'Live',
+    icon: 'connect'
   }
 ];
 
@@ -89,7 +96,8 @@ const icons = {
   rota: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3 10h18M8 14h3M8 17h3M15 14h2"/></svg>',
   sheets: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M3 10h18M8 15h13M14 10v10"/></svg>',
   governance: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 3v3h6V3M8 11l1.6 1.6L12 10M14 11h3M8 17l1.6 1.6L12 16M14 17h3"/></svg>',
-  audit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v15H5V6a2 2 0 0 1 2-2Z"/><path d="M9 3h6v4H9zM8 12l2 2 4-4M8 18h8"/></svg>'
+  audit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v15H5V6a2 2 0 0 1 2-2Z"/><path d="M9 3h6v4H9zM8 12l2 2 4-4M8 18h8"/></svg>',
+  connect: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M7.2 10.8 16.7 6.2M7.2 13.2 16.7 17.8"/></svg>'
 };
 
 const fallbackIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>';
