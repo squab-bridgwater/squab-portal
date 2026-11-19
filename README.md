@@ -22,7 +22,7 @@ An installable, responsive launcher for Squab internal applications and branch r
 - Search finds apps, grouped resources and individual branch names. Searching for a branch expands its group.
 - Live and Dev filters apply to the menu.
 - Squab background photo, logo, colours and font remain in place.
-- Linked apps open in the same tab. The Portal has no login, and Google Sheets and other apps retain their own access controls.
+- Linked apps and grouped branch sheet links open in a separate browser tab or window (the mobile PWA/browser determines where they appear), leaving the Portal menu in place. The Portal has no login, and Google Sheets and other apps retain their own access controls.
 - Installable PWA with an offline-cached launcher.
 - Portal remains hidden from search-engine indexing.
 

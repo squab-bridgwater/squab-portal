@@ -119,6 +119,8 @@ function createCard(app, query = '') {
 
   if (!isGroup) {
     card.href = app.url;
+    card.target = '_blank';
+    card.rel = 'noopener noreferrer';
     card.setAttribute('aria-label', 'Open ' + app.name + (app.status === 'Dev' ? ' development app' : ''));
   }
 
@@ -163,6 +165,8 @@ function createCard(app, query = '') {
     const row = document.createElement('a');
     row.className = 'group-link';
     row.href = link.url;
+    row.target = '_blank';
+    row.rel = 'noopener noreferrer';
     row.setAttribute('aria-label', 'Open ' + link.name + ' activity sheet');
     const label = document.createElement('span');
     label.textContent = link.name;
