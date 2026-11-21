@@ -1,10 +1,10 @@
-const CACHE_NAME = 'squab-portal-v15';
+const CACHE_NAME = 'squab-portal-v16';
 const CORE_ASSETS = [
   '/',
   '/index.html',
-  '/styles.css?v=14',
+  '/styles.css?v=15',
   '/assets/squab-bridgwater-background.webp',
-  '/app.js?v=15',
+  '/app.js?v=16',
   '/manifest.webmanifest?v=3',
   '/icons/portal-icon.svg',
   '/icons/portal-icon-192.png',

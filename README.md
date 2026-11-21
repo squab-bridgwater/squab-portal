@@ -6,6 +6,7 @@ An installable, responsive launcher for Squab internal applications and branch r
 
 - Social Creator (Live)
 - Pricing / Unit Finder (Live)
+- Insurance % Vs Moveins Report (Live, Google Sheets)
 - Insurance Audit (Live)
 - Operations (Dev)
 - Electricity (Live)
@@ -18,6 +19,7 @@ An installable, responsive launcher for Squab internal applications and branch r
 
 ## Design and behaviour
 
+- Alphabetical A-Z order for all tiles, including grouped links, regardless of Live/Dev filter or search.
 - Four compact tiles per row on wide desktops, three or two at narrower sizes, two on mobile.
 - Expandable groups use accessible native `details`/`summary` and hide links until expanded.
 - Search finds apps, grouped resources and individual branch names. Searching for a branch expands its group.

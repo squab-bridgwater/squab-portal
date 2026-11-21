@@ -83,6 +83,13 @@ const apps = [
     url: 'https://squab-connect.vercel.app/',
     status: 'Live',
     icon: 'connect'
+  },
+  {
+    name: 'Insurance % Vs Moveins Report',
+    description: 'View the insurance percentage versus move-ins report.',
+    url: 'https://docs.google.com/spreadsheets/d/1dtGLyO4-za4vxi90S8h9W7JzqDAW0DiPVVGeykqKMpc/edit?gid=116011201#gid=116011201',
+    status: 'Live',
+    icon: 'report'
   }
 ];
 
@@ -97,7 +104,8 @@ const icons = {
   sheets: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16M3 10h18M8 15h13M14 10v10"/></svg>',
   governance: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 3v3h6V3M8 11l1.6 1.6L12 10M14 11h3M8 17l1.6 1.6L12 16M14 17h3"/></svg>',
   audit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10a2 2 0 0 1 2 2v15H5V6a2 2 0 0 1 2-2Z"/><path d="M9 3h6v4H9zM8 12l2 2 4-4M8 18h8"/></svg>',
-  connect: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M7.2 10.8 16.7 6.2M7.2 13.2 16.7 17.8"/></svg>'
+  connect: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M7.2 10.8 16.7 6.2M7.2 13.2 16.7 17.8"/></svg>',
+  report: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5z"/><path d="M16 3v4h3M8 17v-4M12 17V9M16 17v-6"/></svg>'
 };
 
 const fallbackIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>';
@@ -202,6 +210,8 @@ function renderApps() {
   });
 
   const list = document.createDocumentFragment();
+  // Alphabetical ordering stays consistent as more apps and groups are added.
+  visible.sort((a, b) => a.name.localeCompare(b.name, 'en-GB', { sensitivity: 'base' }));
   visible.forEach((app) => list.appendChild(createCard(app, query)));
   appGrid.replaceChildren(list);
 

@@ -266,3 +266,5 @@ button:focus-visible,a:focus-visible,input:focus-visible { outline: 3px solid #f
 }
 
 .app-card[data-icon="connect"] { --accent1:#faab77; --accent2:#e56d43; --tint:#fff0e7; }
+
+.app-card[data-icon="report"] { --accent1:#92b9fb; --accent2:#3973cf; --tint:#e9f1ff; }
